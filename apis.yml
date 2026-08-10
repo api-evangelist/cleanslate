@@ -1,7 +1,14 @@
 aid: cleanslate
 name: CleanSlate
-description: 'CleanSlate is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'CleanSlate (CleanSlate Centers) is a national outpatient medical group
+  treating opioid and alcohol use disorder with physician-led, office-based medication-assisted
+  treatment — FDA-approved medication combined with primary care and behavioral health
+  therapy for polysubstance use and co-occurring disorders. Founded in 2009 in Massachusetts
+  by Dr. Amanda Wilson in response to the opioid epidemic, it grew to more than 65 outpatient
+  centers across eight states and raised roughly $79M in venture backing before being acquired
+  by Spero Health on July 1, 2026. CleanSlate is a care-delivery organization: it operates
+  clinics, not a software platform, and publishes no public API, SDK, developer portal or
+  machine-readable specification.'
 url: https://raw.githubusercontent.com/api-evangelist/cleanslate/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +19,13 @@ created: '2026-08-09'
 modified: '2026-08-09'
 tags:
 - Company
+- Healthcare
+- Behavioral Health
+- Addiction Treatment
+- Opioid Use Disorder
+- Medication-Assisted Treatment
+- Outpatient Clinics
+- United States
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +33,34 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/cleanslate-domain-security.yml
 - type: Website
+  url: https://www.cleanslatecenters.com/
+- type: SecondaryMarket
   url: https://forgeglobal.com/cleanslate_stock/
+x-enrichment:
+  date: '2026-08-09'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    CleanSlate is a 65-clinic outpatient addiction-treatment medical group (acquired by
+    Spero Health on 2026-07-01) whose only public host is a WordPress marketing site —
+    6,945 archived URLs across its entire history contain no /api, /developers or /docs
+    path, and no GitHub organization exists — so there is no software product to expose
+    an API; the live site additionally answers every automated request, including
+    /robots.txt, with a SiteGround `sg-captcha: challenge` interstitial (HTTP 202).
+  evidence:
+  - url: https://www.cleanslatecenters.com/developers
+    status: 202
+  - url: https://www.cleanslatecenters.com/robots.txt
+    status: 202
+  - url: https://web.archive.org/cdx/search/cdx?url=cleanslatecenters.com&matchType=domain&fl=original&collapse=urlkey&limit=20000
+    status: 200
+  - url: https://api.github.com/search/users?q=cleanslate+type:org
+    status: 200
+  checked: '2026-08-09'
